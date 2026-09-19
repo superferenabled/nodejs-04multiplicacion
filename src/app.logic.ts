@@ -1,29 +1,22 @@
-import { writeFileSync, existsSync,mkdirSync } from 'fs';
-console.log('hola mundo!');
-const base = 5;
-const outputPath = './salidona';
-const output = `============================
+import { writeFileSync, existsSync, mkdirSync } from 'fs';
+import { yarg } from './config/plugins';
+
+const {b: base, l: limit, s: showTable} = yarg;
+
+const outputPath = './out/files';
+let output = `============================
          Tabla del ${base}
-============================
+============================\n`;
 
-${base} x 1 = ${base * 1 }
-${base} x 2 = ${base * 2 }
-${base} x 3 = ${base * 3 }
-${base} x 4 = ${base * 4 }
-${base} x 5 = ${base * 5 }
-${base} x 6 = ${base * 6 }
-${base} x 7 = ${base * 7 }
-${base} x 8 = ${base * 8 }
-${base} x 9 = ${base * 9 }
-${base} x 10 = ${base * 10}`;
+for (let i = 1; i <= limit; i++) {
+  output += `${base} x ${i} = ${base * i} \n`;
+}
 
-console.log(output);
+if (showTable) console.log(output);
 
-if (!existsSync(outputPath)){
-  mkdirSync(outputPath, {recursive: true})
+if (!existsSync(outputPath)) {
+  mkdirSync(outputPath, { recursive: true });
 }
 
 writeFileSync(`${outputPath}/tabla-${base}.txt`, output);
-
-
 console.log('file created!');

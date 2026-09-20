@@ -11,7 +11,7 @@
     "clean": "rimraf ./dist",
     "start": "node dist/app.js",
     "dev": "npx tsx src/app.ts -b 7 -s",
-    "dev:nodemon": "nodemon"
+    "dev:nodemon": "nodemon -b 8 -show"
   },
   "keywords": [],
   "author": "",

@@ -9,13 +9,12 @@ export class CreateTable implements CreateTableUseCase {
   constructor() {}
 
   execute({ base, limit = 10 }: CreateTableOptions) {
-    let output = `============================
-        Tabla del ${base}
-============================\n`;
-
+    let output: string = '';
+    const arrValues: string[] = [];
     for (let i = 1; i <= limit; i++) {
-      output += `${base} x ${i} = ${base * i} \n`;
+      arrValues.push(`${base} x ${i} = ${base * i}`)
     }
+    output += arrValues.join('\n')
     return output;
   }
 }

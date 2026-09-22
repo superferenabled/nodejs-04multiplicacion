@@ -15,9 +15,10 @@ export class SaveFile implements SaveFileUseCase {
   execute({
     fileContent,
     destination = 'out',
-    fileName = ' table',
+    fileName = 'table',
   }: SaveFileOptions): boolean {
     try {
+        console.log(existsSync(destination))
       if (!existsSync(destination)) {
         mkdirSync(destination, { recursive: true });
       }

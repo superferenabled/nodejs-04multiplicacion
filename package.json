@@ -18,7 +18,7 @@
   "license": "ISC",
   "type": "module",
   "devDependencies": {
-    "@types/node": "^22.20.2",
+    "@types/node": "^22.20.4",
     "@types/yargs": "^17.0.35",
     "@vitest/coverage-v8": "^5.0.0",
     "dotenv": "^17.4.2",
@@ -27,6 +27,7 @@
     "tsx": "^4.23.13",
     "typescript": "^7.0.2",
     "vite": "^8.3.0",
+    "vite-tsconfig-paths": "^6.1.1",
     "vitest": "^5.0.0"
   },
   "dependencies": {

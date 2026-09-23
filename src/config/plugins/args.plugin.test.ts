@@ -1,5 +1,4 @@
-import { beforeEach } from 'node:test';
-import { describe, expect, test, vi } from 'vitest';
+import { describe, expect, test, vi} from 'vitest';
 
 const originalArgv = process.argv;
 const runCommand = async (args: string[]) => {

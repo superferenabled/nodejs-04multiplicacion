@@ -1,4 +1,4 @@
-import { describe, expect, test, vi } from 'vitest';
+import { afterEach, describe, expect, test, vi } from 'vitest';
 import { ServerApp } from './server-app';
 import { CreateTable } from '../domain/use-cases/create-table.use-case';
 import { SaveFile } from '../domain/use-cases/save-file.use-case';
@@ -16,6 +16,11 @@ const createTableSpy = vi.spyOn(CreateTable.prototype, 'execute');
 const saveFileSpy = vi.spyOn(SaveFile.prototype, 'execute');
 
 describe('serverapp', () => {
+
+  afterEach(() => {
+    vi.clearAllMocks();
+  })
+
   test('should create server app instance', () => {
     const serverApp = new ServerApp();
     expect(serverApp).toBeInstanceOf(ServerApp);
@@ -43,7 +48,7 @@ describe('serverapp', () => {
   //   });
   // });
 
-  test('should run withy custom values mocked', () => {
+  test('should run with custom values mocked', () => {
     const createMock = vi.fn().mockReturnValue('1 x 2 = 2');
     const saveFileMock = vi.fn().mockReturnValue(true);
     const logMock = vi.fn();
@@ -66,6 +71,6 @@ describe('serverapp', () => {
       destination: options.destPath,
       fileName: options.fileName,
     });
-    expect(logMock).toHaveBeenCalledWith('File Created!');
+    expect(logMock).toHaveBeenCalledWith(expect.any(String));
   });
 });

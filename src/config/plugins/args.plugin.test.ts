@@ -12,7 +12,6 @@ const runCommand = async (args: string[]) => {
 describe('argv tests', () => {
   test('should return default values', async () => {
     const argv = await runCommand(['-b', '5']);
-    // console.log(argv);
     expect(argv).toEqual(
       expect.objectContaining({
         b: 5,
@@ -37,7 +36,6 @@ describe('argv tests', () => {
       '-d',
       'in',
     ]);
-    // console.log(argv);
     expect(argv).toEqual(
       expect.objectContaining({
         b: 10,
